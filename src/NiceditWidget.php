@@ -4,7 +4,7 @@ namespace pun2006\yiinicedit;
 use yii\base\Widget;
 use yii\widgets\InputWidget;
 use yii\helpers\Html;
-use app\widgets\HelloWidgetAsset;
+use pun2006\yiinicedit\NiceditWidgetAsset;
 
 /**
  * Тестовый виджет для редактора niceedit 
@@ -14,7 +14,7 @@ use app\widgets\HelloWidgetAsset;
  *
  */
 
-class HelloWidget extends InputWidget
+class NiceditWidget extends InputWidget
 {   
     /**
      * Начальные данные в textarea
@@ -90,7 +90,7 @@ class HelloWidget extends InputWidget
     
     private function registerAssets() {
         $view=$this->getView();
-        HelloWidgetAsset::register($view);        
+        NiceditWidgetAsset::register($view);        
     }
     
     private function getScript(){

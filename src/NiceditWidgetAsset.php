@@ -3,7 +3,7 @@
 namespace pun2006\yiinicedit;
 use yii\web\AssetBundle;
 
-class HelloWidgetAsset extends AssetBundle
+class NiceditWidgetAsset extends AssetBundle
 {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
