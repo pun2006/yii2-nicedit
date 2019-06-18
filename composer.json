@@ -1,0 +1,20 @@
+{
+	"name" : "pun2006/yiinicedit",
+	"description" : "Example yii widget. Do not use in production",
+	"type" : "library",
+	"require" : {
+		"php" : "^7.0"
+	},
+	"license" : "BSD-3-Clause",
+	"authors" : [{
+			"name" : "Vasiliy Baykalov",
+			"email" : "bayvas@mail.ru"
+		}
+	],
+	"autoload" : {
+		"psr-4" : {
+			"pun2006\\yiinicedit" : "src/"
+		}
+	},
+	"minimum-stability" : "stable"
+}
