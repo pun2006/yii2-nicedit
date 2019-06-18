@@ -3,10 +3,12 @@
 namespace pun2006\yiinicedit;
 use yii\web\AssetBundle;
 
+
 class NiceditWidgetAsset extends AssetBundle
 {
-    public $basePath = '@webroot';
-    public $baseUrl = '@web';
+    public $sourcePath = __DIR__ . '/assets';
+//     public $basePath = '@webroot';
+//     public $baseUrl = '@web';
     
     public $js = [
         "http://js.nicedit.com/nicEdit-latest.js",

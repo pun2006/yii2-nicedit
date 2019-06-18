@@ -7,7 +7,7 @@ use yii\helpers\Html;
 use pun2006\yiinicedit\NiceditWidgetAsset;
 
 /**
- * Тестовый виджет для редактора niceedit 
+ * Тестовый виджет для редактора nicedit 
  * который давно уже никто не поддерживает.
  * 
  * @author bvv
