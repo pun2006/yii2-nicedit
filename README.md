@@ -20,7 +20,7 @@ $form->field($model, 'attribute')->widget(NiceditWidget::classname(),['fullpanel
 </code>			
 
 <ul>
-<b>Поддерживаются следующие опции:</b>    
+<h3>Поддерживаются следующие опции:</h3>    
 <li>content, string инициализация с заданным контентом, по умолчанию будет пусто;</li>
 <li>fullpanel, boolean отображать все кнопки на панели;</li>
 <li>local, boolean использовать локальные скрипты виджета, по умолчанию false(используются ресурсы CDN).</li>
