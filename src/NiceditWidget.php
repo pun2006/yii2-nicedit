@@ -5,6 +5,7 @@ use yii\base\Widget;
 use yii\widgets\InputWidget;
 use yii\helpers\Html;
 use pun2006\yiinicedit\NiceditWidgetAsset;
+use yii\helpers\Json;
 
 /**
  * Тестовый виджет для редактора nicedit 
@@ -16,17 +17,18 @@ use pun2006\yiinicedit\NiceditWidgetAsset;
 
 class NiceditWidget extends InputWidget
 {   
+    /*
+     * Настройка редактора, пожалуйста обратитесь для списка параметров по адресу 
+     * http://wiki.nicedit.com/w/page/515/Configuration%20Options
+     */
+    public $editorOptions = [];
+    
+
     /**
      * Начальные данные в textarea
      * @var string
      */
     public $content;
-    
-    /**
-     * Переменная отвечает за вывод всех кнопок на панели редактора.
-     * @var boolean
-     */
-    public $fullpanel = false;
     
     /**
      * тип по умолчанию
@@ -76,7 +78,7 @@ class NiceditWidget extends InputWidget
     
     public function run()
     {
-        $this->view->registerJs($this->getScript(),$this->view::POS_READY);
+        $this->view->registerJs($this->buildScript(),$this->view::POS_READY);
         if ($this->local) {
             $this->registerAssets();
         } else 
@@ -87,7 +89,7 @@ class NiceditWidget extends InputWidget
         
         if (!$this->model) {
         return Html::textarea("nicedit",$this->content,["id"=>$this->getInputId()]);
-            Html::script($this->getScript());            
+            Html::script($this->buildScript());            
         } else {
             $this->options['id'] = $this->getInputId();            
             echo html::activeTextarea($this->model, $this->attribute,$this->options);
@@ -104,24 +106,18 @@ class NiceditWidget extends InputWidget
         NiceditWidgetAsset::register($view);        
     }
     
-    private function bool2str($bool) {
-        return $bool ? "true" : "false";        
-    }
     
-    
-
     /**
      *  
      * @return string
      */    
-    private function getScript(){        
-        $this->local ? $path = 'iconsPath : \''. \Yii::$app->assetManager->getBundle(NiceditWidgetAsset::class)->baseUrl.'/nicEdit/nicEditorIcons.gif\'':$path = '';
+    private function buildScript(){
+        $this->local ? $this->editorOptions['iconsPath'] = \Yii::$app->assetManager->getBundle(NiceditWidgetAsset::class)->baseUrl.'/nicEdit/nicEditorIcons.gif':'';
+        $json=Json::encode($this->editorOptions);        
     return <<<marker
     bkLib.onDomLoaded(function() {
-    new nicEditor({fullPanel : {$this->bool2str($this->fullpanel)},{$path}}).panelInstance('{$this->getInputId()}');
+    new nicEditor({$json}).panelInstance('{$this->getInputId()}');
     });
 marker;
     }
-    
-    
 }

@@ -1,6 +1,6 @@
 {
 	"name" : "pun2006/yii2-nicedit",
-	"description" : "Example yii widget. Do not use in production",
+	"description" : "Nicedit yii widget wrapper.",
 	"type" : "library",
 	"require" : {
 		"php" : "^7.0",
