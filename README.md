@@ -8,16 +8,15 @@
 Данный редактор заброшен, не рекомендую к использованию.
 
 Использование:
-
+<code>
 use pun2006\yiinicedit\NiceditWidget;
-
-
-<code><?=  NiceditWidget::widget(['content' => "some content",'fullpanel'=>'true','local'=>true]); ?></code>
+<?=  NiceditWidget::widget(['content' => "some content",'fullpanel'=>'true','local'=>true]); ?>
+</code>	
 
 Также можно использовать с ActiveField.
-
+<code>
 $form->field($model, 'attribute')->widget(NiceditWidget::classname(),['fullpanel'=>false,'local'=>true]) ?>
-		
+</code>			
 Поддерживаются следующие опции:
 - content, string инициализация с заданным контентом, по умолчанию будет пусто;
 - fullpanel, boolean отображать все кнопки на панели;
