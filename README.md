@@ -15,7 +15,7 @@ use pun2006\yiinicedit\NiceditWidget;
 
 Также можно использовать с ActiveField
 
-$form->field($model, 'attribute')->textarea([])->widget(NiceditWidget::classname(),['fullpanel'=>false,'local'=>true]) ?>
+$form->field($model, 'attribute')->widget(NiceditWidget::classname(),['fullpanel'=>false,'local'=>true]) ?>
 		
 Поддерживаются следующие опции:
 - content, string инициализация с заданным контентом, по умолчанию будет пусто.
