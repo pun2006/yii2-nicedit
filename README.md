@@ -1,6 +1,7 @@
 # yiinicedit
 
 Использование:
+
 use pun2006\yiinicedit\NiceditWidget;
 ...
 ...
