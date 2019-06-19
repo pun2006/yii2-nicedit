@@ -7,7 +7,7 @@ Niceditor Widget для Yii2
 
 Установка
 ------------
-php composer.phar require "pun2006/yiinicedit" "*"
+php composer.phar require "pun2006/yii2-nicedit" "*"
 
 Использование
 -----
