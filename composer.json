@@ -1,9 +1,10 @@
 {
-	"name" : "pun2006/yiinicedit",
+	"name" : "pun2006/yii2-nicedit",
 	"description" : "Example yii widget. Do not use in production",
 	"type" : "library",
 	"require" : {
-		"php" : "^7.0"
+		"php" : "^7.0",
+		"yiisoft/yii2" : "^2.0"
 	},
 	"license" : "BSD-3-Clause",
 	"authors" : [{
