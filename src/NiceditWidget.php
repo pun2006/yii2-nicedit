@@ -32,7 +32,7 @@ class NiceditWidget extends InputWidget
      * тип по умолчанию
      * @var string
      */
-    public $type = 'text';
+    public $type = 'text';    
     
     /**
      * Генерация ID для input field
@@ -40,6 +40,12 @@ class NiceditWidget extends InputWidget
      */
        
     private $inputId;
+    
+    /**
+     * Использовать локальные ресурсы? если нет,то CDN
+     * @var bool
+     */
+    public $local=false;
     
     /**
      * {@inheritDoc}
@@ -70,7 +76,14 @@ class NiceditWidget extends InputWidget
     
     public function run()
     {
-        $this->registerAssets();
+        if ($this->local) {
+            $this->registerAssets();
+        } else 
+        {
+            $view=$this->getView();
+            $view->registerJsFile('http://js.nicedit.com/nicEdit-latest.js',['position'=>$view::POS_HEAD]);
+        }        
+        
         if (!$this->model) {
         return Html::textarea("nicedit",$this->content,["id"=>$this->getInputId()]).
             Html::script($this->getScript());            
@@ -81,11 +94,8 @@ class NiceditWidget extends InputWidget
     }
     
     private function getInputId() {
-        if (!$this->inputId) {
-            $this->inputId="nicedit".uniqid();
-        }        
-        return $this->inputId;
-        
+        !$this->inputId ? $this->inputId="nicedit".uniqid():'';        
+        return $this->inputId;        
     }
     
     private function registerAssets() {
@@ -93,11 +103,20 @@ class NiceditWidget extends InputWidget
         NiceditWidgetAsset::register($view);        
     }
     
-    private function getScript(){
+    /**
+     * 
+     * @param boolean $local используется при локальном источнике ресурсов.
+     * @return string
+     */
+    
+    private function getScript(){        
+        $this->local ? $path = 'iconsPath : \''. \Yii::$app->assetManager->getBundle(NiceditWidgetAsset::class)->baseUrl.'/nicEdit/nicEditorIcons.gif\'':$path = '';
     return <<<marker
 bkLib.onDomLoaded(function() {
-new nicEditor({fullPanel : {$this->fullpanel}}).panelInstance('{$this->getInputId()}');
+new nicEditor({fullPanel : {$this->fullpanel},{$path}}).panelInstance('{$this->getInputId()}');
 });
 marker;
     }
+    
+    
 }

@@ -6,14 +6,14 @@ use yii\web\AssetBundle;
 
 class NiceditWidgetAsset extends AssetBundle
 {
-    public $sourcePath = __DIR__ . '/assets';
-//     public $basePath = '@webroot';
-//     public $baseUrl = '@web';
+    public $sourcePath = __DIR__ . '/Assets';
+
     
     public $js = [
-        "http://js.nicedit.com/nicEdit-latest.js",
+    "nicEdit/nicEdit.js",    
     ];
     public $jsOptions = ['position' => \yii\web\View::POS_HEAD];
     public $depends = [      
-    ];
+    ];   
+    
 }
