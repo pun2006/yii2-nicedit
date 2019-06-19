@@ -30,3 +30,8 @@ $form->field($model, 'attribute')->widget(NiceditWidget::classname(),['local'=>t
 	* local, boolean использовать локальные скрипты виджета, по умолчанию false(используются ресурсы CDN).
 
 
+Примеры
+-----
+```
+<?= $form->field($category, 'name')->widget(NiceditWidget::classname(),['local'=>true,'editorOptions'=>['buttonList'=>['bold','italic','underline','left','center']]]) ?>
+```
