@@ -7,7 +7,7 @@
 Тестовый виджет обертка редактора wyswyg http://nicedit.com/
 Данный редактор заброшен, не рекомендую к использованию.
 
-Использование:
+<p>Использование:</p>
 <code>
 use pun2006\yiinicedit\NiceditWidget;
 <?=  NiceditWidget::widget(['content' => "some content",'fullpanel'=>'true','local'=>true]); ?>
