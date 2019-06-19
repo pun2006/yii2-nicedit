@@ -2,7 +2,7 @@ Niceditor Widget для Yii2
 ========================
 Тестовый виджет обертка редактора wyswyg http://nicedit.com
 Выполнен в целях обучения написания виджетов.
-####Данный редактор заброшен. 
+#### Данный редактор заброшен. 
 
 Установка
 ------------
@@ -24,7 +24,7 @@ $form->field($model, 'attribute')->widget(NiceditWidget::classname(),['local'=>t
 
 Опции
 -----
-Поддерживаются следующие опции:   
+* Поддерживаются следующие опции:   
 	* content, string инициализация с заданным контентом, по умолчанию будет пусто;</li>
 	* editorOptions, array [wiki.nicedit.com](http://wiki.nicedit.com/w/page/515/Configuration%20Options);
 	* local, boolean использовать локальные скрипты виджета, по умолчанию false(используются ресурсы CDN).</li>
