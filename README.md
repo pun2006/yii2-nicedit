@@ -18,8 +18,8 @@ use pun2006\yiinicedit\NiceditWidget;
 <code>
 $form->field($model, 'attribute')->widget(NiceditWidget::classname(),['fullpanel'=>false,'local'=>true]) ?>
 </code>			
-<p>Поддерживаются следующие опции:
-- content, string инициализация с заданным контентом, по умолчанию будет пусто;
-- fullpanel, boolean отображать все кнопки на панели;
-- local, boolean использовать локальные скрипты виджета, по умолчанию false(используются ресурсы CDN).
-</p>
+<ul>Поддерживаются следующие опции:
+  <li>content, string инициализация с заданным контентом, по умолчанию будет пусто;</li>
+  <li>fullpanel, boolean отображать все кнопки на панели;</li>
+  <li>local, boolean использовать локальные скрипты виджета, по умолчанию false(используются ресурсы CDN).</li>
+</ul>
