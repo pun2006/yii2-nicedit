@@ -27,6 +27,6 @@ $form->field($model, 'attribute')->widget(NiceditWidget::classname(),['local'=>t
 * Поддерживаются следующие опции:   
 	* content, string инициализация с заданным контентом, по умолчанию будет пусто;</li>
 	* editorOptions, array [wiki.nicedit.com](http://wiki.nicedit.com/w/page/515/Configuration%20Options);
-	* local, boolean использовать локальные скрипты виджета, по умолчанию false(используются ресурсы CDN).</li>
+	* local, boolean использовать локальные скрипты виджета, по умолчанию false(используются ресурсы CDN).
 
 
