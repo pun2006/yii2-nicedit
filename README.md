@@ -1,5 +1,6 @@
 # yiinicedit
 
+
 Выполнен в целях обучения написания виджетов.
 Раскрыт только базовый функционал редактора.
 
@@ -8,8 +9,7 @@
 
 Использование:
 use pun2006\yiinicedit\NiceditWidget;
-...
-...
+
 
 <?=  NiceditWidget::widget(['content' => "some content",'fullpanel'=>'true','local'=>true]); ?>
 
