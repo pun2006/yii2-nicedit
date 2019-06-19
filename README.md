@@ -14,7 +14,7 @@ use pun2006\yiinicedit\NiceditWidget;
 <?=  NiceditWidget::widget(['content' => "some content",'fullpanel'=>'true','local'=>true]); ?>
 </code>	
 
-<p>Также можно использовать с ActiveField.</p>
+<h3>Также можно использовать с ActiveField.</h3>
 <code>
 $form->field($model, 'attribute')->widget(NiceditWidget::classname(),['fullpanel'=>false,'local'=>true]) ?>
 </code>			
