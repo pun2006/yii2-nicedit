@@ -24,9 +24,9 @@ class NiceditWidget extends InputWidget
     
     /**
      * Переменная отвечает за вывод всех кнопок на панели редактора.
-     * @var string
+     * @var boolean
      */
-    public $fullpanel = "false";
+    public $fullpanel = false;
     
     /**
      * тип по умолчанию
@@ -43,7 +43,7 @@ class NiceditWidget extends InputWidget
     
     /**
      * Использовать локальные ресурсы? если нет,то CDN
-     * @var bool
+     * @var boolean
      */
     public $local=false;
     
@@ -76,6 +76,7 @@ class NiceditWidget extends InputWidget
     
     public function run()
     {
+        $this->view->registerJs($this->getScript(),$this->view::POS_READY);
         if ($this->local) {
             $this->registerAssets();
         } else 
@@ -85,11 +86,11 @@ class NiceditWidget extends InputWidget
         }        
         
         if (!$this->model) {
-        return Html::textarea("nicedit",$this->content,["id"=>$this->getInputId()]).
+        return Html::textarea("nicedit",$this->content,["id"=>$this->getInputId()]);
             Html::script($this->getScript());            
         } else {
-            $this->options['id'] = $this->getInputId();             
-            echo html::activeTextarea($this->model, $this->attribute,$this->options).Html::script($this->getScript());
+            $this->options['id'] = $this->getInputId();            
+            echo html::activeTextarea($this->model, $this->attribute,$this->options);
         }
     }
     
@@ -103,18 +104,22 @@ class NiceditWidget extends InputWidget
         NiceditWidgetAsset::register($view);        
     }
     
-    /**
-     * 
-     * @param boolean $local используется при локальном источнике ресурсов.
-     * @return string
-     */
+    private function bool2str($bool) {
+        return $bool ? "true" : "false";        
+    }
     
+    
+
+    /**
+     *  
+     * @return string
+     */    
     private function getScript(){        
         $this->local ? $path = 'iconsPath : \''. \Yii::$app->assetManager->getBundle(NiceditWidgetAsset::class)->baseUrl.'/nicEdit/nicEditorIcons.gif\'':$path = '';
     return <<<marker
-bkLib.onDomLoaded(function() {
-new nicEditor({fullPanel : {$this->fullpanel},{$path}}).panelInstance('{$this->getInputId()}');
-});
+    bkLib.onDomLoaded(function() {
+    new nicEditor({fullPanel : {$this->bool2str($this->fullpanel)},{$path}}).panelInstance('{$this->getInputId()}');
+    });
 marker;
     }
     
